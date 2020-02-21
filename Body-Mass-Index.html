@@ -1,0 +1,54 @@
+<html lang="en" dir="ltr">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>JS - Body Mass Index</title>
+     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.js"></script>
+    <script type="text/javascript">
+      
+      count = () =>{
+        let Berat = document.getElementById('Berat').value;
+        let Tinggi = document.getElementById('Tinggi').value;
+        let hasil = Berat/(Tinggi*Tinggi);
+        
+        document.getElementById('hasil').value = hasil;
+
+        if (hasil < 18.5){
+          document.getElementById('hasil').value = ("KURUS");
+        } else if (hasil >= 18.5 && hasil <= 22.9){
+           document.getElementById('hasil').value = ("NORMAL");  
+        }else if (hasil >= 23 && hasil <= 24.9){
+           document.getElementById('hasil').value = ("OVERWEIGHT");
+       }  else if (hasil >= 25){
+           document.getElementById('hasil').value = ("OBESITAS");
+      }
+      }
+    </script>
+</head>
+<body>
+     <div class="container">
+          <div class="card col-sm-4">
+            <div class="card-header">
+              <h4>Hitung Berat Badan kalian</h4>
+            </div>
+            <div class="card-body">
+              Berat(Kg)
+              <input type="number" id="Berat" class="form-control">
+              Tinggi(m)
+              <input type="number" id="Tinggi" class="form-control">
+              <button type="button" class="btn btn-info btn-block"
+              onclick="count()">
+                Hitung
+              </button>
+              Hasil
+              <input type="text" id="hasil" class="form-control" 
+              readonly>
+              
+            </div>
+          </div>
+        </div>
+</body>
+</html>
